@@ -1,14 +1,8 @@
-# config/solano.yml
----
-test_pattern:
-  - features/*.feature
-  - features/api/*.feature
-  - spec/**/*_spec.rb
-  - test/**/*_test.rb
-postgresql:
-  version: '9.1'
-mysql:
-  version: '5.5'
-sqlite: false
-phantomjs:
-  version: '1.8.1'
+ruby_version: ruby-1.9.3-p194        
+bundler_version: 1.7.12
+hooks:                                  
+  worker_setup: bundle exec rake db:migrate # Runs once for each worker to do, e.g., database setup
+test_pattern:                                
+  - spec/**/*_spec.rb                       
+tests:
+  - bundle exec rspec
